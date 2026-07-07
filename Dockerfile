@@ -47,6 +47,13 @@ RUN apt-get update && \
     chmod +x /usr/local/bin/geckodriver && \
     firefox --version && \
     geckodriver --version && \
+    setcap cap_net_raw,cap_net_admin+ep /usr/sbin/dhcpcd && \
+    setcap cap_net_raw,cap_net_admin+ep /usr/bin/ip && \
+    echo "Cmnd_Alias NETCMDS = /usr/bin/ip, /usr/sbin/dhcpcd, /usr/sbin/pppd" > /etc/sudoers.d/networking && \
+    echo "tester ALL=(root) NOPASSWD: NETCMDS" >> /etc/sudoers.d/networking && \
+    chown 0:0 /etc/sudoers.d/networking && \
+    useradd -m -s /bin/bash tester && \
+    usermod -aG sudo tester && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/*
 
