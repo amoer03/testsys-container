@@ -38,7 +38,7 @@ RUN apt-get update && \
         ;; \
     esac && \
     curl -L -o /tmp/firefox.tar.xz \
-      "https://download.mozilla.org/?product=firefox-latest&os=${FIREFOX_OS}&lang=en-US" && \
+      "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=${FIREFOX_OS}&lang=en-US" && \
     tar -xJf /tmp/firefox.tar.xz -C /opt && \
     ln -sf /opt/firefox/firefox /usr/local/bin/firefox && \
     curl -L -o /tmp/geckodriver.tar.gz \
