@@ -84,6 +84,9 @@ libcairo-gobject2
 libnspr4
 libnss3
 
+# USB communication and hardware interfaces
+libusb-1.0-0
+
 # Audio and printing
 #libasound2
 #libcups2
