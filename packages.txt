@@ -88,8 +88,8 @@ libnss3
 libusb-1.0-0
 
 # Audio and printing
-#libasound2
-#libcups2
+libasound2
+libcups2
 
 # Core runtime libraries
 #libc6
