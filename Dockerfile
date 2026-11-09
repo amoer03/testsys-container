@@ -18,7 +18,8 @@ RUN apt-get update && \
     ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo ${TZ} > /etc/timezone && \
     if [ -s packages.txt ]; then \
-      xargs -r apt-get install -y --no-install-recommends < packages.txt; \
+      sed 's/#.*//; /^[[:space:]]*$/d' packages.txt | \
+      xargs -r apt-get install -y --no-install-recommends; \
     fi && \
     if [ -s requirements.txt ]; then \
       pip3 install --no-cache-dir -r requirements.txt; \
